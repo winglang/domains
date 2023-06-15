@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@cdktf/provider-dnsimple": "^5.0.4",
+    "cdktf": "^0.16.1"
+  }
+}
