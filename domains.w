@@ -34,16 +34,6 @@ new dnsimple.zoneRecord.ZoneRecord(
   value: "cname.vercel-dns.com.",
 ) as "winglang_io_docs_cname_record";
 
-class DomainWrapper {
-  record: dnsimple.zoneRecord.ZoneRecord;
-
-  init(
-    config: dnsimple.zoneRecord.ZoneRecordConfig,
-  ) {
-
-  }
-}
-
 class Domain {
   zoneName: str;
 
