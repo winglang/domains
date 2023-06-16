@@ -42,4 +42,10 @@ cd target/domains.tfaws
 terraform init && terraform apply
 ```
 
+## Roadmap
 
+- [ ] Wait for fix in https://github.com/winglang/wing/issues/1739
+- [ ] Refactor code to use Domain class
+- [ ] Import state from dnsimple
+- [ ] Make sure there's a consistently clean plan
+- [ ] Setup github action deployment workflow
