@@ -34,25 +34,46 @@ new dnsimple.zoneRecord.ZoneRecord(
   value: "cname.vercel-dns.com.",
 ) as "winglang_io_docs_cname_record";
 
+class DomainWrapper {
+  record: dnsimple.zoneRecord.ZoneRecord;
+
+  init(
+    config: dnsimple.zoneRecord.ZoneRecordConfig,
+  ) {
+
+  }
+}
+
+class Domain {
+  zoneName: str;
+
+  init(zoneName: str) {
+    this.zoneName = zoneName;
+  }
+
+  addRecord(
+    name: str,
+    type: str,
+    value: str,
+    ttl: num?,
+  ) {
+    new dnsimple.zoneRecord.ZoneRecord(
+      zoneName: this.zoneName,
+      name: name,
+      type: type,
+      ttl: ttl ?? 3600,
+      value: value,
+    );
+  }
+}
+
 // ~~~ winglang.io ~~~
 
-new dnsimple.zoneRecord.ZoneRecord(
-  zoneName: "winglang.io",
-  name: "",
-  type: "A",
-  ttl: 3600,
-  value: "75.2.70.75",
-) as "winglang_io_a_record-1";
-
-new dnsimple.zoneRecord.ZoneRecord(
-  zoneName: "winglang.io",
-  name: "",
-  type: "A",
-  ttl: 3600,
-  value: "99.83.190.102",
-) as "winglang_io_a_record-2";
-
-// ~~~ winglang.io ALIAS ~~~
+//  that's how it should be, but it's not possible to create a class with a dynamic name right now
+// see issue
+// let winglangIo = new Domain("winglang.io");
+// winglangIo.addRecord("", "A", "75.2.70.75");
+// winglangIo.addRecord("", "A", "99.83.190.102");
 
 new dnsimple.zoneRecord.ZoneRecord(
   zoneName: "winglang.io",
